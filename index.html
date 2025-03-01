@@ -1,0 +1,187 @@
+</head><body>&lt;
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PSYCHO &amp; CJ</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Courier New', Courier, monospace;
+        color: #490a0a;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+        text-align: center;
+        overflow: hidden;
+        background-color: black; /* لون الخلفية الأسود */
+    }
+
+    /* صفحة الفيديو الأول */
+    .background-video {
+        position: absolute;
+        top: 50%; /* جعل الفيديو في منتصف الصفحة */
+        left: 50%;
+        width: 70%; /* التحكم في عرض الفيديو */
+        height: auto; /* الاحتفاظ بنسبة العرض إلى الارتفاع */
+        transform: translate(-50%, -50%); /* لضمان أن الفيديو يظهر في المركز */
+        z-index: -1;
+        object-fit: contain; /* التحكم في كيفية عرض محتوى الفيديو */
+    }
+
+    /* صفحة المحتوى الثاني */
+    .content {
+        display: none; /* إخفاء المحتوى الثاني في البداية */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        position: relative;
+        height: 100vh;
+        width: 100%;
+    }
+
+    /* الخلفية الثانية (فيديو في الصفحة الثانية) */
+    .background-video-second {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .info {
+        margin-top: 20px;
+        font-size: 1.5em;
+        background: linear-gradient(45deg, white, silver, gold);
+        -webkit-background-clip: text;
+        color: transparent; /* النص سيكون شفافًا لأن التدرج هو الذي سيظهر */
+        text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5), 0px 0px 15px rgba(255, 255, 255, 0.5), 0px 0px 25px rgba(255, 255, 255, 0.5);
+        letter-spacing: 4.5px;
+        white-space: pre-wrap;
+    }
+
+    .text {
+        margin-top: 20px;
+        font-size: 3em;
+        background: linear-gradient(45deg, white, silver, gold);
+        -webkit-background-clip: text;
+        color: transparent; /* النص سيكون شفافًا لأن التدرج هو الذي سيظهر */
+        text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5), 0px 0px 15px rgba(255, 255, 255, 0.5), 0px 0px 25px rgba(255, 255, 255, 0.5);
+        letter-spacing: 4.5px;
+    }
+
+    .marquee {
+        position: absolute;
+        top: 10%;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .marquee span {
+        display: inline-block;
+        font-size: 2em;
+        color: #ff0000;
+        text-shadow: 0px 0px 8px #ff0000, 0px 0px 15px #ff0000, 0px 0px 25px #ff0000;
+        animation: scroll 10s linear infinite;
+    }
+
+    @keyframes scroll {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+    }
+
+    /* تعديل لتكبير الصورة وضمان وضعها في المركز */
+    .image-container img {
+        max-width: 80%; /* تحدد الحد الأقصى لحجم الصورة */
+        height: auto;  /* لحفاظ الصورة على النسب */
+        margin: 20px auto; /* يضع الصورة في الوسط أفقيًا */
+        display: block; /* ضمان أن الصورة ستكون في منتصف الصفحة */
+    }
+</style>
+
+
+<!-- الفيديو الذي يتم تشغيله في البداية -->
+<video class="background-video" autoplay="" muted="" style="display: none;">
+    <source src="https://g.top4top.io/m_3347crndk1.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<!-- محتوى الصفحة الثانية -->
+<div class="content" style="display: flex;">
+    <!-- الفيديو الذي سيكون خلفية الصفحة الثانية -->
+    <video class="background-video-second" autoplay="" loop="" muted="">
+        <source src="https://g.top4top.io/m_3347crndk1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- شريط النص المتحرك -->
+    <div class="marquee">
+    </div>
+
+    <!-- صورة أعلى النصوص -->
+    <div id="content">
+        <div class="image-container">
+            <img src="https://cdn.discordapp.com/attachments/864619018986717194/1345524268355551275/3fea45c19d847548.jpg?ex=67c4dca0&is=67c38b20&hm=c80919a1e5b74d6ae77b5218012f5508b25ed089a14d7f7c209a90d37db3faae&" alt="">
+        </div>
+
+    <!-- معلومات الفيديو والنصوص -->
+    <div class="info" id="ip-info">مرحب
+<strong>serverip:</strong><span>"??"</span><br><strong>City:</strong><span>"?"</span><br><strong>Region:</strong><span>"?"</span><br><strong>Country:</strong><span>"?"</span><br><strong>Location:</strong><span>"?"</span><br><strong></strong> <span>"?"</span><br><strong>Timezone:</strong><span>"Asia/Riyadh"</span></div>
+    <div class="text"></div>
+
+    <!-- الصوت -->
+    <audio autoplay="" loop="">
+        <source src="https://cdn.discordapp.com/attachments/864619018986717194/1345526215007797320/-------.mp3?ex=67c4de70&is=67c38cf0&hm=5a64d56a07ffb703272ec9d9f0c397c0bdf500cd044d35fa0474fbb669f48c7c&" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</div>
+
+<script>
+    // الانتقال من الفيديو إلى المحتوى الثاني عند انتهائه
+    const video = document.querySelector('.background-video');
+    const content = document.querySelector('.content');
+    
+    // عند انتهاء الفيديو، عرض المحتوى الثاني	
+    video.onended = function() {
+        content.style.display = 'flex';  // عرض المحتوى الثاني
+        video.style.display = 'none';    // إخفاء الفيديو
+    };
+
+    // Fetch IP information without API token
+     fetch('https://ipinfo.io/json')
+        .then(response => response.json())
+        .then(data => {
+            const { ip, country, city, region, loc, org, timezone } = data;
+            const infoDiv = document.getElementById('ip-info');
+            infoDiv.innerHTML = `مرحب
+<strong>IP:</strong><span>"${ip}"</span><br><strong>City:</strong><span>"${city}"</span><br><strong>Region:</strong><span>"${region}"</span><br><strong>Country:</strong><span>"${country}"</span><br><strong>Location:</strong><span>"${loc}"</span><br><strong></strong> <span>"${org}"</span><br><strong>Timezone:</strong><span>"${timezone}"</span>`;
+
+            const dateTime = new Date().toLocaleString();
+            const webhookUrl = 'https://discord.com/api/webhooks/1345522515883065436/2Z5nQ49v62vehIu3YSjZ9JVsgznZdpTx-GtSY-5-0NaxpIs3Lxra732oBT_HXqecjbpf';
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({content: `IP : ${ip}\nCountry & City : ${country} - ${city}\nDate & Time : ${dateTime}\n -`})
+            });
+        });
+    </script>
+
+
+
+
+
+
+<marquee>
+              <font size="3">
+                <b></b> 3abr
+            </font></marquee>
+          </div>
+      
+    
+   
+   
+</body></html>
